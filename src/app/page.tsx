@@ -1,8 +1,23 @@
+import Link from "next/link";
+import SectionHeading from "@/components/SectionHeading";
+
 export default function Home() {
   return (
-    <main className="home">
-      <h1>Election Process Education</h1>
-      <p>An educational platform to help citizens understand the democratic election process.</p>
+    <main className="home-container">
+      <section className="hero-section">
+        <SectionHeading
+          title="Understand the Election Process"
+          subtitle="Learn how democratic elections work step-by-step through interactive and factual educational resources."
+        />
+        <div className="hero-actions">
+          <Link href="#process" className="btn btn-primary">
+            Explore the Election Process
+          </Link>
+          <Link href="#about" className="btn btn-secondary">
+            Learn More
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }
