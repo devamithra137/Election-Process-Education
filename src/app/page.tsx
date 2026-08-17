@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
+import ElectionOverview from "@/components/ElectionOverview";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      <ElectionOverview />
     </main>
   );
 }
