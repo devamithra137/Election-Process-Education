@@ -4,6 +4,7 @@ import ElectionOverview from "@/components/ElectionOverview";
 import VoterRegistration from "@/components/VoterRegistration";
 import ElectionTimeline from "@/components/ElectionTimeline";
 import VotingProcess from "@/components/VotingProcess";
+import VoteCounting from "@/components/VoteCounting";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <VoterRegistration />
       <ElectionTimeline />
       <VotingProcess />
+      <VoteCounting />
     </main>
   );
 }
