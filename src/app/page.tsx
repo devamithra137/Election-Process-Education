@@ -2,6 +2,7 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import ElectionOverview from "@/components/ElectionOverview";
 import VoterRegistration from "@/components/VoterRegistration";
+import ElectionTimeline from "@/components/ElectionTimeline";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       </section>
       <ElectionOverview />
       <VoterRegistration />
+      <ElectionTimeline />
     </main>
   );
 }
