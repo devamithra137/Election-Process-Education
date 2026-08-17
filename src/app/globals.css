@@ -61,3 +61,20 @@ a {
   color: var(--color-muted);
   max-width: 48ch;
 }
+
+.section-heading {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.section-heading p {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}
