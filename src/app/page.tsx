@@ -16,7 +16,7 @@ export default function Home() {
           subtitle="Learn how democratic elections work step-by-step through interactive and factual educational resources."
         />
         <div className="hero-actions">
-          <Link href="#process" className="btn btn-primary">
+          <Link href="/election-process" className="btn btn-primary">
             Explore the Election Process
           </Link>
           <Link href="#about" className="btn btn-secondary">

@@ -13,7 +13,7 @@ export const Navbar: React.FC = () => {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="#process">Election Process</Link>
+            <Link href="/election-process">Election Process</Link>
           </li>
           <li>
             <Link href="#about">About</Link>
