@@ -11,9 +11,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Election Process Education",
+  title: {
+    default: "Election Process Education",
+    template: "%s | Election Process Education",
+  },
   description:
-    "An educational platform that helps citizens understand the democratic election process in a clear, structured, and engaging way.",
+    "An educational resource that helps users understand the general election process, voter registration, voting, vote counting, and election terminology.",
+  applicationName: "Election Process Education",
+  keywords: [
+    "election process",
+    "voter registration",
+    "voting process",
+    "vote counting",
+    "election terminology",
+    "civic education",
+    "democratic elections",
+    "voting guide",
+  ],
 };
 
 export default function RootLayout({
