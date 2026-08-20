@@ -9,6 +9,7 @@ interface Topic {
   title: string;
   href: string;
   description: string;
+  destinationLabel: string;
 }
 
 const TOPICS: Topic[] = [
@@ -17,36 +18,42 @@ const TOPICS: Topic[] = [
     title: "Election Process",
     href: "/election-process",
     description: "Step-by-step overview of democratic election stages.",
+    destinationLabel: "Election Process guide",
   },
   {
     id: "voter-registration",
     title: "Voter Registration",
     href: "/voter-registration",
     description: "Eligibility, gathering documents, and registering.",
+    destinationLabel: "Voter Registration guide",
   },
   {
     id: "voting-process",
     title: "Voting Process",
     href: "/voting-process",
     description: "Pre-election prep, arriving, verification, and casting votes.",
+    destinationLabel: "Voting Process guide",
   },
   {
     id: "vote-counting",
     title: "Vote Counting",
     href: "/vote-counting",
     description: "Collection, verification, reconciliation, and declaring results.",
+    destinationLabel: "Vote Counting guide",
   },
   {
     id: "election-terminology",
     title: "Election Terminology",
     href: "/glossary",
     description: "Glossary of key election terms and concepts.",
+    destinationLabel: "Glossary page",
   },
   {
     id: "knowledge-quiz",
     title: "Knowledge Quiz",
     href: "/quiz",
     description: "Interactive self-assessment to test your understanding.",
+    destinationLabel: "Knowledge Quiz",
   },
 ];
 
@@ -133,16 +140,25 @@ export default function LearningProgress() {
                     checked={isCompleted}
                     onChange={() => toggleTopic(topic.id)}
                     className="topic-checkbox"
-                    aria-label={`Mark ${topic.title} as completed`}
+                    aria-label={`Mark ${topic.title} as ${isCompleted ? "incomplete" : "completed"}`}
                   />
                   <span className="topic-title">{topic.title}</span>
                 </label>
-                {isCompleted && <span className="completed-badge">✓ Completed</span>}
+                <span
+                  className={isCompleted ? "completed-badge" : "pending-badge"}
+                  aria-label={isCompleted ? "Status: Completed" : "Status: Incomplete"}
+                >
+                  {isCompleted ? "✓ Completed" : "Incomplete"}
+                </span>
               </div>
               <p className="topic-description">{topic.description}</p>
               <div className="topic-link-container">
-                <Link href={topic.href} className="topic-explore-link">
-                  Explore topic →
+                <Link
+                  href={topic.href}
+                  className="topic-explore-link"
+                  aria-label={`Learn about ${topic.title} on the ${topic.destinationLabel}`}
+                >
+                  Learn on {topic.destinationLabel} →
                 </Link>
               </div>
             </div>
