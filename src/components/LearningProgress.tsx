@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import SectionHeading from "./SectionHeading";
+import LoadingIndicator from "./LoadingIndicator";
 
 interface Topic {
   id: string;
@@ -92,6 +93,20 @@ export default function LearningProgress() {
   const completedCount = completedTopics.length;
   const totalCount = TOPICS.length;
   const percentage = Math.round((completedCount / totalCount) * 100);
+
+  if (!isLoaded) {
+    return (
+      <section className="learning-progress-section" aria-labelledby="progress-heading">
+        <SectionHeading
+          title="Learning Progress Tracker"
+          subtitle="Track your journey as you learn about democratic election processes."
+        />
+        <div className="progress-overview-card progress-loading-container">
+          <LoadingIndicator label="Loading learning progress..." />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="learning-progress-section" aria-labelledby="progress-heading">
