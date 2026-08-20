@@ -1,14 +1,15 @@
-import React from "react";
+"use client";
+
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 
-export const metadata = {
-  title: "Election Terminology",
-  description:
-    "A beginner-friendly educational glossary defining key terms used in democratic elections, including voters, registration, ballots, constituencies, and election authorities.",
-};
+interface GlossaryItem {
+  term: string;
+  definition: string;
+}
 
-const GLOSSARY_ITEMS = [
+const GLOSSARY_ITEMS: GlossaryItem[] = [
   {
     term: "Voter",
     definition:
@@ -62,6 +63,23 @@ const GLOSSARY_ITEMS = [
 ];
 
 export default function GlossaryPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredItems = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return GLOSSARY_ITEMS;
+
+    return GLOSSARY_ITEMS.filter(
+      (item) =>
+        item.term.toLowerCase().includes(query) ||
+        item.definition.toLowerCase().includes(query)
+    );
+  }, [searchQuery]);
+
+  const handleClear = () => {
+    setSearchQuery("");
+  };
+
   return (
     <main className="glossary-page-container">
       <nav className="glossary-nav" aria-label="Page navigation">
@@ -110,18 +128,71 @@ export default function GlossaryPage() {
         </p>
       </section>
 
+      <section className="glossary-search-section" aria-label="Search glossary terms">
+        <div className="glossary-search-container">
+          <label htmlFor="glossary-search-input" className="glossary-search-label">
+            Search terms or definitions:
+          </label>
+          <div className="glossary-search-input-wrapper">
+            <input
+              id="glossary-search-input"
+              type="text"
+              className="glossary-search-input"
+              placeholder="e.g. Ballot, Registration, Authority..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search election terms or definitions"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="glossary-clear-button"
+                onClick={handleClear}
+                aria-label="Clear search"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+          <div className="glossary-search-status" aria-live="polite">
+            {searchQuery.trim() && (
+              <span className="glossary-result-count">
+                Showing {filteredItems.length} of {GLOSSARY_ITEMS.length} terms
+              </span>
+            )}
+          </div>
+        </div>
+      </section>
+
       <section className="glossary-content" aria-labelledby="terms-heading">
         <h2 id="terms-heading" className="glossary-section-title">
           Key Election Terms
         </h2>
-        <dl className="glossary-list">
-          {GLOSSARY_ITEMS.map((item) => (
-            <div key={item.term} className="glossary-card">
-              <dt className="glossary-term">{item.term}</dt>
-              <dd className="glossary-definition">{item.definition}</dd>
-            </div>
-          ))}
-        </dl>
+        {filteredItems.length > 0 ? (
+          <dl className="glossary-list">
+            {filteredItems.map((item) => (
+              <div key={item.term} className="glossary-card">
+                <dt className="glossary-term">{item.term}</dt>
+                <dd className="glossary-definition">{item.definition}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : (
+          <div className="glossary-empty-state" role="status">
+            <p className="empty-message">No matching terms found.</p>
+            <p className="empty-subtext">
+              Try typing a different keyword or{" "}
+              <button
+                type="button"
+                className="empty-clear-link"
+                onClick={handleClear}
+              >
+                clear the search
+              </button>{" "}
+              to see all terms.
+            </p>
+          </div>
+        )}
       </section>
 
       <div className="glossary-disclaimer" role="note">

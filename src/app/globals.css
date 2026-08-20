@@ -1211,6 +1211,126 @@ a {
   margin-bottom: 1.25rem;
 }
 
+/* ─── Glossary Search ────────────────────────────────────────── */
+.glossary-search-section {
+  margin-bottom: 2.25rem;
+}
+
+.glossary-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 550px;
+}
+
+.glossary-search-label {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.glossary-search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.glossary-search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-size: 0.975rem;
+  font-family: inherit;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glossary-search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-border);
+}
+
+.glossary-clear-button {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.glossary-clear-button:hover {
+  color: var(--color-foreground);
+  background-color: var(--color-surface-hover);
+}
+
+.glossary-clear-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+}
+
+.glossary-search-status {
+  min-height: 1.25rem;
+}
+
+.glossary-result-count {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.glossary-empty-state {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.empty-message {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: 0.5rem;
+}
+
+.empty-subtext {
+  font-size: 0.925rem;
+  color: var(--color-muted);
+}
+
+.empty-clear-link {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.empty-clear-link:hover {
+  color: var(--color-primary-hover);
+}
+
+.empty-clear-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
 .glossary-content {
   margin-bottom: 2.5rem;
 }
