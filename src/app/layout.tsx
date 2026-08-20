@@ -10,14 +10,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_TITLE = "Election Process Education";
+const SITE_DESCRIPTION =
+  "An educational resource that helps users understand the general election process, voter registration, voting, vote counting, and election terminology.";
+
 export const metadata: Metadata = {
   title: {
-    default: "Election Process Education",
-    template: "%s | Election Process Education",
+    default: SITE_TITLE,
+    template: `%s | ${SITE_TITLE}`,
   },
-  description:
-    "An educational resource that helps users understand the general election process, voter registration, voting, vote counting, and election terminology.",
-  applicationName: "Election Process Education",
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_TITLE,
   keywords: [
     "election process",
     "voter registration",
@@ -28,6 +31,17 @@ export const metadata: Metadata = {
     "democratic elections",
     "voting guide",
   ],
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    type: "website",
+    siteName: SITE_TITLE,
+  },
+  twitter: {
+    card: "summary",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
