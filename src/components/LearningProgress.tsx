@@ -123,8 +123,12 @@ export default function LearningProgress() {
               className={`topic-check-card ${isCompleted ? "completed" : ""}`}
             >
               <div className="topic-check-header">
-                <label className="topic-checkbox-label">
+                <label
+                  className="topic-checkbox-label"
+                  htmlFor={`topic-check-${topic.id}`}
+                >
                   <input
+                    id={`topic-check-${topic.id}`}
                     type="checkbox"
                     checked={isCompleted}
                     onChange={() => toggleTopic(topic.id)}

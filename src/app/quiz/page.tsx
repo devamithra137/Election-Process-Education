@@ -96,6 +96,22 @@ export default function QuizPage() {
     setSelectedAnswers(updated);
   };
 
+  const handleOptionKeyDown = (e: React.KeyboardEvent, idx: number) => {
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      const nextIdx = (idx + 1) % currentQ.options.length;
+      handleSelectOption(nextIdx);
+      const nextBtn = document.getElementById(`quiz-opt-${nextIdx}`);
+      nextBtn?.focus();
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const prevIdx = (idx - 1 + currentQ.options.length) % currentQ.options.length;
+      handleSelectOption(prevIdx);
+      const prevBtn = document.getElementById(`quiz-opt-${prevIdx}`);
+      prevBtn?.focus();
+    }
+  };
+
   const handleNext = () => {
     if (currentIndex < QUIZ_QUESTIONS.length - 1) {
       setCurrentIndex(currentIndex + 1);
@@ -185,13 +201,16 @@ export default function QuizPage() {
               return (
                 <button
                   key={idx}
+                  id={`quiz-opt-${idx}`}
                   type="button"
                   className={`quiz-option-button ${isSelected ? "selected" : ""}`}
                   onClick={() => handleSelectOption(idx)}
+                  onKeyDown={(e) => handleOptionKeyDown(e, idx)}
                   role="radio"
                   aria-checked={isSelected}
+                  aria-label={`Option ${String.fromCharCode(65 + idx)}: ${option}`}
                 >
-                  <span className="quiz-option-badge">
+                  <span className="quiz-option-badge" aria-hidden="true">
                     {String.fromCharCode(65 + idx)}
                   </span>
                   <span className="quiz-option-text">{option}</span>

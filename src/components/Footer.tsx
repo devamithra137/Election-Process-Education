@@ -13,7 +13,7 @@ const navLinks = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" aria-label="Site Footer">
       <div className="footer-container">
         <div className="footer-top">
           <div className="footer-brand-section">
@@ -23,9 +23,9 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <div className="footer-nav-section">
+          <nav className="footer-nav-section" aria-label="Footer Navigation">
             <h3 className="footer-heading">Navigation</h3>
-            <ul className="footer-links">
+            <ul className="footer-links" role="list">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="footer-link">
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
 
         <div className="footer-bottom">
