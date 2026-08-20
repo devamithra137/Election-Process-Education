@@ -1211,9 +1211,12 @@ a {
   margin-bottom: 1.25rem;
 }
 
-/* ─── Glossary Search ────────────────────────────────────────── */
-.glossary-search-section {
+/* ─── Glossary Search & Filters ──────────────────────────────── */
+.glossary-filters-section {
   margin-bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .glossary-search-container {
@@ -1278,6 +1281,57 @@ a {
 
 .glossary-clear-button:focus-visible {
   outline: 2px solid var(--color-primary);
+}
+
+.glossary-category-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-filter-label {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.category-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-pill-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-foreground-muted);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-pill-button:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-border-hover);
+  color: var(--color-foreground);
+}
+
+.category-pill-button.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: var(--shadow-xs);
+}
+
+.category-pill-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .glossary-search-status {
@@ -1355,12 +1409,32 @@ a {
   box-shadow: var(--shadow-sm);
 }
 
+.glossary-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .glossary-term {
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--color-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+}
+
+.glossary-category-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-primary-border);
+  white-space: nowrap;
 }
 
 .glossary-definition {
