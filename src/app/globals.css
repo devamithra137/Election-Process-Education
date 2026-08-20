@@ -1295,6 +1295,58 @@ a {
   margin-top: 0.5rem;
 }
 
+/* ─── Key Takeaways Section ─────────────────────────────────── */
+.takeaways-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 5rem auto 2rem;
+  padding: 0 1rem;
+}
+
+.takeaways-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.takeaway-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.takeaway-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.06);
+}
+
+.takeaway-badge {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  background-color: #eff6ff;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.takeaway-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-foreground);
+  line-height: 1.5;
+}
+
 /* ─── Learning Progress Section ─────────────────────────────── */
 .learning-progress-section {
   width: 100%;

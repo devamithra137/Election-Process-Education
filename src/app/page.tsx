@@ -5,6 +5,7 @@ import VoterRegistration from "@/components/VoterRegistration";
 import ElectionTimeline from "@/components/ElectionTimeline";
 import VotingProcess from "@/components/VotingProcess";
 import VoteCounting from "@/components/VoteCounting";
+import KeyTakeaways from "@/components/KeyTakeaways";
 import FAQ from "@/components/FAQ";
 import LearningProgress from "@/components/LearningProgress";
 
@@ -30,6 +31,7 @@ export default function Home() {
       <ElectionTimeline />
       <VotingProcess />
       <VoteCounting />
+      <KeyTakeaways />
       <FAQ />
       <LearningProgress />
     </main>
