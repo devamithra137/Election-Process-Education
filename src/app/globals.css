@@ -1295,6 +1295,143 @@ a {
   margin-top: 0.5rem;
 }
 
+/* ─── Learning Progress Section ─────────────────────────────── */
+.learning-progress-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 5rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.progress-overview-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.progress-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.progress-count-text {
+  font-size: 1.05rem;
+  color: var(--color-foreground);
+}
+
+.progress-percentage-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 10px;
+  background-color: #f3f4f6;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  transition: width 0.4s ease;
+}
+
+.topics-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.topic-check-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.topic-check-card:hover {
+  border-color: var(--color-accent);
+}
+
+.topic-check-card.completed {
+  border-color: #a7f3d0;
+  background-color: #f0fdf4;
+}
+
+.topic-check-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.topic-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.topic-checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.topic-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.completed-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #047857;
+  background-color: #d1fae5;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  white-space: nowrap;
+}
+
+.topic-description {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  margin-top: 0.25rem;
+}
+
+.topic-link-container {
+  margin-top: auto;
+}
+
+.topic-explore-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+
+.topic-explore-link:hover {
+  text-decoration: underline;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
