@@ -1,38 +1,12 @@
 import React from "react";
 import SectionHeading from "./SectionHeading";
 
-export interface RegistrationStep {
-  stepNumber: number;
-  title: string;
-  description: string;
-}
+import {
+  type RegistrationStep,
+  VOTER_REGISTRATION_STEPS,
+} from "@/data/electionProcess";
 
-const registrationSteps: RegistrationStep[] = [
-  {
-    stepNumber: 1,
-    title: "Check Eligibility",
-    description:
-      "Confirm age, citizenship, and residency criteria established by your local electoral laws.",
-  },
-  {
-    stepNumber: 2,
-    title: "Complete Registration",
-    description:
-      "Submit the required voter application form along with valid identification or proof of residence.",
-  },
-  {
-    stepNumber: 3,
-    title: "Verify Registration Details",
-    description:
-      "Review the official electoral roll or voter list to ensure your name and polling station details are correct.",
-  },
-  {
-    stepNumber: 4,
-    title: "Keep Information Updated",
-    description:
-      "Update your voter record promptly if you change your address, legal name, or voter status.",
-  },
-];
+export type { RegistrationStep };
 
 export const VoterRegistration: React.FC = () => {
   return (
@@ -43,7 +17,7 @@ export const VoterRegistration: React.FC = () => {
       />
 
       <div className="registration-grid">
-        {registrationSteps.map((step) => (
+        {VOTER_REGISTRATION_STEPS.map((step) => (
           <div key={step.stepNumber} className="registration-card">
             <div className="registration-step-number">{step.stepNumber}</div>
             <div className="registration-content">

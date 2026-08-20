@@ -1,38 +1,12 @@
 import React from "react";
 import SectionHeading from "./SectionHeading";
 
-export interface CountingStage {
-  stageNumber: number;
-  title: string;
-  description: string;
-}
+import {
+  type CountingStage,
+  VOTE_COUNTING_STAGES,
+} from "@/data/electionProcess";
 
-const countingStages: CountingStage[] = [
-  {
-    stageNumber: 1,
-    title: "Votes Are Collected",
-    description:
-      "Completed paper ballots or secure electronic voting data are collected and transported according to established security procedures.",
-  },
-  {
-    stageNumber: 2,
-    title: "Votes Are Counted",
-    description:
-      "Official election staff count ballots using transparent, standardized, and legally defined counting mechanisms.",
-  },
-  {
-    stageNumber: 3,
-    title: "Verification & Review",
-    description:
-      "Tabulation accuracy is verified through reconciliation, cross-checks, and review protocols defined by electoral rules.",
-  },
-  {
-    stageNumber: 4,
-    title: "Results Are Declared",
-    description:
-      "The designated election authority officially certifies and publishes the final election results to the public.",
-  },
-];
+export type { CountingStage };
 
 export const VoteCounting: React.FC = () => {
   return (
@@ -43,7 +17,7 @@ export const VoteCounting: React.FC = () => {
       />
 
       <div className="counting-grid">
-        {countingStages.map((stage) => (
+        {VOTE_COUNTING_STAGES.map((stage) => (
           <div key={stage.stageNumber} className="counting-card">
             <div className="counting-step-number">{stage.stageNumber}</div>
             <div className="counting-content">

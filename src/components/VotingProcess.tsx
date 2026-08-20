@@ -1,44 +1,12 @@
 import React from "react";
 import SectionHeading from "./SectionHeading";
 
-export interface VotingStep {
-  stepNumber: number;
-  title: string;
-  description: string;
-}
+import {
+  type VotingStep,
+  VOTING_PROCESS_STEPS,
+} from "@/data/electionProcess";
 
-const votingSteps: VotingStep[] = [
-  {
-    stepNumber: 1,
-    title: "Verify Voter Eligibility",
-    description:
-      "Confirm you meet applicable age, citizenship, and residency requirements and are registered on official electoral rolls.",
-  },
-  {
-    stepNumber: 2,
-    title: "Locate Assigned Voting Location",
-    description:
-      "Check official notifications from your relevant election authority to find your assigned polling station or voting method.",
-  },
-  {
-    stepNumber: 3,
-    title: "Verify Identity & Registration",
-    description:
-      "Follow the required identity check and voter verification procedure upon arrival at the voting location.",
-  },
-  {
-    stepNumber: 4,
-    title: "Cast Your Vote",
-    description:
-      "Make your selection in privacy using the officially provided voting mechanism, such as paper ballot or electronic voting system.",
-  },
-  {
-    stepNumber: 5,
-    title: "Confirm Vote Recording",
-    description:
-      "Follow designated procedures to deposit or submit your ballot, ensuring your vote is securely recorded.",
-  },
-];
+export type { VotingStep };
 
 export const VotingProcess: React.FC = () => {
   return (
@@ -49,7 +17,7 @@ export const VotingProcess: React.FC = () => {
       />
 
       <div className="voting-grid">
-        {votingSteps.map((step) => (
+        {VOTING_PROCESS_STEPS.map((step) => (
           <div key={step.stepNumber} className="voting-card">
             <div className="voting-badge">{step.stepNumber}</div>
             <div className="voting-content">
