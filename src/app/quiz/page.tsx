@@ -85,18 +85,28 @@ export default function QuizPage() {
   const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
     Array(QUIZ_QUESTIONS.length).fill(null)
   );
+  // Tracks which questions have been confirmed (answer locked in)
+  const [confirmedAnswers, setConfirmedAnswers] = useState<boolean[]>(
+    Array(QUIZ_QUESTIONS.length).fill(false)
+  );
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const currentQ = QUIZ_QUESTIONS[currentIndex];
+  const currentAnswerIndex = selectedAnswers[currentIndex];
+  const isCurrentConfirmed = confirmedAnswers[currentIndex];
+  const isCurrentCorrect =
+    isCurrentConfirmed && currentAnswerIndex === currentQ.correctIndex;
 
   const handleSelectOption = (optionIndex: number) => {
-    if (isSubmitted) return;
+    // Prevent re-selection after confirming
+    if (isSubmitted || isCurrentConfirmed) return;
     const updated = [...selectedAnswers];
     updated[currentIndex] = optionIndex;
     setSelectedAnswers(updated);
   };
 
   const handleOptionKeyDown = (e: React.KeyboardEvent, idx: number) => {
+    if (isCurrentConfirmed) return;
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
       e.preventDefault();
       const nextIdx = (idx + 1) % currentQ.options.length;
@@ -110,6 +120,13 @@ export default function QuizPage() {
       const prevBtn = document.getElementById(`quiz-opt-${prevIdx}`);
       prevBtn?.focus();
     }
+  };
+
+  const handleConfirm = () => {
+    if (currentAnswerIndex === null || isCurrentConfirmed) return;
+    const updated = [...confirmedAnswers];
+    updated[currentIndex] = true;
+    setConfirmedAnswers(updated);
   };
 
   const handleNext = () => {
@@ -130,6 +147,7 @@ export default function QuizPage() {
 
   const handleReset = () => {
     setSelectedAnswers(Array(QUIZ_QUESTIONS.length).fill(null));
+    setConfirmedAnswers(Array(QUIZ_QUESTIONS.length).fill(false));
     setCurrentIndex(0);
     setIsSubmitted(false);
   };
@@ -140,7 +158,18 @@ export default function QuizPage() {
     }, 0);
   };
 
-  const allAnswered = selectedAnswers.every((ans) => ans !== null);
+  // All questions must be both answered and confirmed to enable submit
+  const allConfirmed = confirmedAnswers.every(Boolean);
+
+  const getOptionClass = (idx: number): string => {
+    const isSelected = currentAnswerIndex === idx;
+    if (!isCurrentConfirmed) {
+      return `quiz-option-button ${isSelected ? "selected" : ""}`;
+    }
+    if (idx === currentQ.correctIndex) return "quiz-option-button feedback-correct";
+    if (isSelected && idx !== currentQ.correctIndex) return "quiz-option-button feedback-incorrect";
+    return "quiz-option-button feedback-neutral";
+  };
 
   return (
     <main className="quiz-page-container">
@@ -209,18 +238,19 @@ export default function QuizPage() {
 
           <div className="quiz-options-list" role="radiogroup" aria-label={currentQ.question}>
             {currentQ.options.map((option, idx) => {
-              const isSelected = selectedAnswers[currentIndex] === idx;
+              const isSelected = currentAnswerIndex === idx;
               return (
                 <button
                   key={idx}
                   id={`quiz-opt-${idx}`}
                   type="button"
-                  className={`quiz-option-button ${isSelected ? "selected" : ""}`}
+                  className={getOptionClass(idx)}
                   onClick={() => handleSelectOption(idx)}
                   onKeyDown={(e) => handleOptionKeyDown(e, idx)}
                   role="radio"
                   aria-checked={isSelected}
                   aria-label={`Option ${String.fromCharCode(65 + idx)}: ${option}`}
+                  disabled={isCurrentConfirmed}
                 >
                   <span className="quiz-option-badge" aria-hidden="true">
                     {String.fromCharCode(65 + idx)}
@@ -230,6 +260,25 @@ export default function QuizPage() {
               );
             })}
           </div>
+
+          {/* Inline answer feedback */}
+          {isCurrentConfirmed && (
+            <div
+              className={`quiz-answer-feedback ${isCurrentCorrect ? "feedback-correct-box" : "feedback-incorrect-box"}`}
+              role="status"
+              aria-live="polite"
+            >
+              <p className="feedback-verdict">
+                {isCurrentCorrect ? "✓ Correct!" : "✗ Not quite"}
+              </p>
+              {!isCurrentCorrect && (
+                <p className="feedback-correct-answer">
+                  <strong>Correct answer:</strong> {currentQ.options[currentQ.correctIndex]}
+                </p>
+              )}
+              <p className="feedback-explanation">{currentQ.explanation}</p>
+            </div>
+          )}
 
           <div className="quiz-actions">
             <button
@@ -241,21 +290,30 @@ export default function QuizPage() {
               Previous
             </button>
 
-            {currentIndex < QUIZ_QUESTIONS.length - 1 ? (
+            {/* Show Check Answer until confirmed, then Next/Submit */}
+            {!isCurrentConfirmed ? (
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleConfirm}
+                disabled={currentAnswerIndex === null}
+              >
+                Check Answer
+              </button>
+            ) : currentIndex < QUIZ_QUESTIONS.length - 1 ? (
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={handleNext}
-                disabled={selectedAnswers[currentIndex] === null}
               >
-                Next
+                Next Question
               </button>
             ) : (
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={handleSubmit}
-                disabled={!allAnswered}
+                disabled={!allConfirmed}
               >
                 Submit Quiz
               </button>
