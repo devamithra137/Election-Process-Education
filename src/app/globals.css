@@ -2498,3 +2498,54 @@ a {
     transform: rotate(360deg);
   }
 }
+
+/* ─── Error Page ─────────────────────────────────────────────── */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(75vh - 4rem);
+  padding: 4rem 1.5rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.error-badge {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #dc2626;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-full);
+  padding: 0.3rem 0.85rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.error-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-foreground);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.error-message {
+  font-size: 1.05rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 52ch;
+}
+
+.error-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
