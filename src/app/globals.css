@@ -248,7 +248,8 @@ a {
   margin-top: 2.5rem;
 }
 
-.overview-card {
+.overview-card,
+.info-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -260,10 +261,29 @@ a {
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.overview-card:hover {
+.overview-card:hover,
+.info-card:hover {
   border-color: var(--color-primary-border);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
+}
+
+.info-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+  margin-bottom: 0.5rem;
+}
+
+.info-card-description {
+  font-size: 0.925rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.info-card-badge-wrapper {
+  margin-bottom: 1rem;
 }
 
 .step-badge {

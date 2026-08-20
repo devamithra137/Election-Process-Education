@@ -1,5 +1,6 @@
 import React from "react";
 import SectionHeading from "./SectionHeading";
+import InfoCard from "./InfoCard";
 
 export interface OverviewStep {
   stepNumber: number;
@@ -43,11 +44,13 @@ export const ElectionOverview: React.FC = () => {
       />
       <div className="overview-grid">
         {steps.map((step) => (
-          <div key={step.stepNumber} className="overview-card">
-            <div className="step-badge">{step.stepNumber}</div>
-            <h3>{step.title}</h3>
-            <p>{step.description}</p>
-          </div>
+          <InfoCard
+            key={step.stepNumber}
+            className="overview-card"
+            badge={<span className="step-badge">{step.stepNumber}</span>}
+            title={step.title}
+            description={step.description}
+          />
         ))}
       </div>
     </section>
