@@ -177,11 +177,23 @@ export default function QuizPage() {
 
       {!isSubmitted ? (
         <section className="quiz-card" aria-labelledby="quiz-question-title">
-          <div className="quiz-progress-bar">
-            <span>
-              Question {currentIndex + 1} of {QUIZ_QUESTIONS.length}
-            </span>
-            <div className="quiz-progress-track">
+          <div className="quiz-progress-container" aria-label="Quiz progress">
+            <div className="quiz-progress-header">
+              <span className="quiz-progress-text">
+                Question <strong>{currentIndex + 1}</strong> of <strong>{QUIZ_QUESTIONS.length}</strong>
+              </span>
+              <span className="quiz-progress-percent">
+                {Math.round(((currentIndex + 1) / QUIZ_QUESTIONS.length) * 100)}%
+              </span>
+            </div>
+            <div
+              className="quiz-progress-track"
+              role="progressbar"
+              aria-valuenow={currentIndex + 1}
+              aria-valuemin={1}
+              aria-valuemax={QUIZ_QUESTIONS.length}
+              aria-label={`Question ${currentIndex + 1} of ${QUIZ_QUESTIONS.length}`}
+            >
               <div
                 className="quiz-progress-fill"
                 style={{

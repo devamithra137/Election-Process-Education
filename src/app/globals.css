@@ -1507,11 +1507,32 @@ a {
   box-shadow: var(--shadow-sm);
 }
 
-.quiz-progress-bar {
+.quiz-progress-container {
   margin-bottom: 1.5rem;
+}
+
+.quiz-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-progress-text {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-muted);
+}
+
+.quiz-progress-text strong {
+  color: var(--color-foreground);
+  font-weight: 700;
+}
+
+.quiz-progress-percent {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .quiz-progress-track {
