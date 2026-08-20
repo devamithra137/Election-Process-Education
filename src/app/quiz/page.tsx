@@ -171,6 +171,20 @@ export default function QuizPage() {
     return "quiz-option-button feedback-neutral";
   };
 
+  const score = calculateScore();
+  const totalQuestions = QUIZ_QUESTIONS.length;
+  const percentage = Math.round((score / totalQuestions) * 100);
+
+  const getPerformanceMessage = (pct: number): string => {
+    if (pct >= 80) {
+      return "Excellent understanding";
+    }
+    if (pct >= 60) {
+      return "Good understanding";
+    }
+    return "Keep learning and try again";
+  };
+
   return (
     <main className="quiz-page-container">
       <nav className="quiz-nav" aria-label="Page navigation">
@@ -322,17 +336,41 @@ export default function QuizPage() {
         </section>
       ) : (
         <section className="quiz-results-container" aria-labelledby="results-title">
-          <div className="quiz-score-card">
-            <h2 id="results-title">Quiz Completed!</h2>
-            <p className="quiz-score-text">
-              Your Score: <strong>{calculateScore()}</strong> / {QUIZ_QUESTIONS.length}
+          <div className="quiz-score-card" role="region" aria-label="Quiz results summary">
+            <h2 id="results-title" className="quiz-score-title">Quiz Completed!</h2>
+
+            {/* Score and percentage */}
+            <div
+              className="quiz-score-summary"
+              aria-label={`Final score: ${score} out of ${totalQuestions}, ${percentage} percent`}
+            >
+              <p className="quiz-score-fraction">
+                <span className="quiz-score-number" aria-hidden="true">
+                  {score}<span className="quiz-score-sep">/{totalQuestions}</span>
+                </span>
+                <span className="quiz-score-label">{score} out of {totalQuestions}</span>
+              </p>
+              <p className="quiz-score-percent" aria-hidden="true">
+                {percentage}%
+              </p>
+            </div>
+
+            {/* Tiered performance message */}
+            <p className="quiz-performance-message" role="status" aria-live="polite">
+              {getPerformanceMessage(percentage)}
             </p>
-            <p className="quiz-score-subtext">
-              {calculateScore() === QUIZ_QUESTIONS.length
-                ? "Great job! You answered all questions correctly."
-                : "Good effort! Review the explanations below to reinforce your understanding."}
+
+            {/* Educational note */}
+            <p className="quiz-results-note">
+              This quiz is for educational and learning purposes only. Review your answers below to reinforce your understanding of the election process.
             </p>
-            <button type="button" className="btn btn-primary" onClick={handleReset}>
+
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={handleReset}
+              aria-label="Try the quiz again"
+            >
               Try Again
             </button>
           </div>
