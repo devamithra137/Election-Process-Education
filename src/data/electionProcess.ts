@@ -1,39 +1,22 @@
-export interface ProcessStage {
-  stageNumber?: number;
-  stepNumber?: number;
-  title: string;
-  description: string;
-}
+import {
+  type ElectionProcessStage,
+  type ProcessStage,
+  type OverviewStep,
+  type TimelineStage,
+  type RegistrationStep,
+  type VotingStep,
+  type CountingStage,
+} from "@/types";
 
-export interface OverviewStep {
-  stepNumber: number;
-  title: string;
-  description: string;
-}
-
-export interface TimelineStage {
-  stageNumber: number;
-  title: string;
-  description: string;
-}
-
-export interface RegistrationStep {
-  stepNumber: number;
-  title: string;
-  description: string;
-}
-
-export interface VotingStep {
-  stepNumber: number;
-  title: string;
-  description: string;
-}
-
-export interface CountingStage {
-  stageNumber: number;
-  title: string;
-  description: string;
-}
+export type {
+  ElectionProcessStage,
+  ProcessStage,
+  OverviewStep,
+  TimelineStage,
+  RegistrationStep,
+  VotingStep,
+  CountingStage,
+};
 
 export const ELECTION_OVERVIEW_STEPS: OverviewStep[] = [
   {

@@ -1,21 +1,11 @@
-export type GlossaryCategory =
-  | "All"
-  | "Voters"
-  | "Election Process"
-  | "Voting"
-  | "Counting & Results";
+import {
+  type GlossaryCategory,
+  type GlossaryItemCategory,
+  type GlossaryTerm,
+  type GlossaryItem,
+} from "@/types";
 
-export type GlossaryItemCategory =
-  | "Voters"
-  | "Election Process"
-  | "Voting"
-  | "Counting & Results";
-
-export interface GlossaryItem {
-  term: string;
-  definition: string;
-  category: GlossaryItemCategory;
-}
+export type { GlossaryCategory, GlossaryItemCategory, GlossaryTerm, GlossaryItem };
 
 export const GLOSSARY_CATEGORIES: GlossaryCategory[] = [
   "All",

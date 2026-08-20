@@ -1,13 +1,9 @@
-export interface QuizQuestion {
-  id: number;
-  question: string;
-  options: string[];
-  correctAnswer: number;
-  correctIndex: number;
-  explanation: string;
-}
+import {
+  type QuizQuestion,
+  type Question,
+} from "@/types";
 
-export type Question = QuizQuestion;
+export type { QuizQuestion, Question };
 
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
