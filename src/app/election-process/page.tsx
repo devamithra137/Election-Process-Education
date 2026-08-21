@@ -6,6 +6,7 @@ import VoterRegistration from "@/components/VoterRegistration";
 import ElectionTimeline from "@/components/ElectionTimeline";
 import VotingProcess from "@/components/VotingProcess";
 import VoteCounting from "@/components/VoteCounting";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata = {
   title: "How the Election Process Works | Election Process Education",
@@ -39,6 +40,7 @@ export default function ElectionProcessPage() {
           <strong>Educational Notice:</strong> Exact election procedures, timelines, voting methods, and voter requirements vary by country, election type, and local jurisdiction. Always consult your relevant official election authority for current, binding rules and instructions.
         </p>
       </div>
+      <BackToTop />
     </main>
   );
 }

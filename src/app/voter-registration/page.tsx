@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata = {
   title: "Voter Registration",
@@ -113,6 +114,7 @@ export default function VoterRegistrationPage() {
           For current registration requirements and deadlines, always consult the official election authority for your jurisdiction.
         </p>
       </div>
+      <BackToTop />
     </main>
   );
 }

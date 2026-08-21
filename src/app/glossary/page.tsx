@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
+import BackToTop from "@/components/BackToTop";
 
 import {
   type GlossaryCategory,
@@ -185,6 +186,7 @@ export default function GlossaryPage() {
           <strong>Educational Note:</strong> Terminology and election procedures can differ between countries, election types, and local jurisdictions.
         </p>
       </div>
+      <BackToTop />
     </main>
   );
 }

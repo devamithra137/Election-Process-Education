@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata = {
   title: "Vote Counting and Results",
@@ -146,6 +147,7 @@ export default function VoteCountingPage() {
           For current election results, specific counting procedures, and official notices, always consult the relevant official election authority for your jurisdiction.
         </p>
       </div>
+      <BackToTop />
     </main>
   );
 }

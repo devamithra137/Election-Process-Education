@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata = {
   title: "Voting Process",
@@ -129,6 +130,7 @@ export default function VotingProcessPage() {
           For current voting locations, schedules, identification requirements, and official voting instructions, always consult the relevant official election authority for your jurisdiction.
         </p>
       </div>
+      <BackToTop />
     </main>
   );
 }
