@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
@@ -9,6 +9,7 @@ interface EducationalTopic {
   title: string;
   description: string;
   href: string;
+  keywords: string[];
 }
 
 const EDUCATIONAL_TOPICS: EducationalTopic[] = [
@@ -17,36 +18,95 @@ const EDUCATIONAL_TOPICS: EducationalTopic[] = [
     title: "Election Process",
     description: "Step-by-step overview of democratic election stages and governance.",
     href: "/election-process",
+    keywords: [
+      "stages",
+      "democracy",
+      "overview",
+      "timeline",
+      "candidates",
+      "campaigns",
+      "civics",
+      "government",
+    ],
   },
   {
     id: "voter-registration",
     title: "Voter Registration",
     description: "Eligibility criteria, required documents, and registration methods.",
     href: "/voter-registration",
+    keywords: [
+      "eligibility",
+      "requirements",
+      "documents",
+      "id",
+      "deadlines",
+      "register",
+      "enrollment",
+      "electoral roll",
+    ],
   },
   {
     id: "voting-process",
     title: "Voting Process",
     description: "Pre-election preparation, polling location procedures, and casting ballots.",
     href: "/voting-process",
+    keywords: [
+      "ballot",
+      "polling place",
+      "booth",
+      "casting vote",
+      "in-person",
+      "mail-in",
+      "absentee",
+      "verification",
+    ],
   },
   {
     id: "vote-counting",
     title: "Vote Counting & Results",
     description: "Ballot collection, verification, tallying, reconciliation, and results declaration.",
     href: "/vote-counting",
+    keywords: [
+      "tabulation",
+      "tallying",
+      "reconciliation",
+      "certification",
+      "audits",
+      "canvassing",
+      "declaration",
+      "outcomes",
+    ],
   },
   {
     id: "election-terminology",
     title: "Election Terminology",
     description: "Comprehensive glossary of fundamental election concepts and terms.",
     href: "/glossary",
+    keywords: [
+      "glossary",
+      "definitions",
+      "terms",
+      "vocabulary",
+      "concepts",
+      "dictionary",
+      "phrases",
+    ],
   },
   {
     id: "knowledge-quiz",
     title: "Knowledge Quiz",
     description: "Interactive self-assessment quiz to test your election knowledge.",
     href: "/quiz",
+    keywords: [
+      "questions",
+      "test",
+      "assessment",
+      "practice",
+      "answers",
+      "review",
+      "trivia",
+      "check",
+    ],
   },
 ];
 
@@ -58,11 +118,14 @@ export default function ContentSearch() {
     if (!query) {
       return EDUCATIONAL_TOPICS;
     }
-    return EDUCATIONAL_TOPICS.filter(
-      (topic) =>
-        topic.title.toLowerCase().includes(query) ||
-        topic.description.toLowerCase().includes(query)
-    );
+    return EDUCATIONAL_TOPICS.filter((topic) => {
+      const matchesTitle = topic.title.toLowerCase().includes(query);
+      const matchesDescription = topic.description.toLowerCase().includes(query);
+      const matchesKeywords = topic.keywords.some((kw) =>
+        kw.toLowerCase().includes(query)
+      );
+      return matchesTitle || matchesDescription || matchesKeywords;
+    });
   }, [searchQuery]);
 
   const handleClear = () => {
@@ -150,9 +213,9 @@ export default function ContentSearch() {
                   <Link
                     href={topic.href}
                     className="content-search-card-link"
-                    aria-label={`Explore topic: ${topic.title}`}
+                    aria-label={`Learn more about ${topic.title}`}
                   >
-                    Explore Topic →
+                    Learn More →
                   </Link>
                 </div>
               </div>
