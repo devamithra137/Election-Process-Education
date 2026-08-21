@@ -2611,3 +2611,186 @@ a {
   gap: 1rem;
   flex-wrap: wrap;
 }
+
+/* ─── Content Search ─────────────────────────────────────────── */
+.content-search-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 4rem auto 1rem;
+  padding: 0 1rem;
+}
+
+.content-search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  width: 100%;
+}
+
+.content-search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.content-search-icon {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+.content-search-input {
+  width: 100%;
+  padding: 0.85rem 2.75rem 0.85rem 2.85rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-search-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.content-search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-border);
+}
+
+.content-search-clear-button {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.content-search-clear-button:hover {
+  color: var(--color-foreground);
+  background-color: var(--color-surface-hover);
+}
+
+.content-search-clear-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+}
+
+.content-search-status {
+  min-height: 1.25rem;
+  text-align: center;
+}
+
+.content-search-status-text {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.content-search-results-wrapper {
+  width: 100%;
+}
+
+.content-search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.content-search-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.content-search-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.content-search-card-body {
+  margin-bottom: 1rem;
+}
+
+.content-search-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.content-search-card-description {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.content-search-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.content-search-card-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.content-search-card-link:hover {
+  color: var(--color-primary-hover);
+  transform: translateX(2px);
+}
+
+.content-search-card-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.content-search-empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.content-search-empty-message {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
