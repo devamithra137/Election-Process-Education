@@ -2294,7 +2294,8 @@ a {
   .voting-proc-page-container,
   .vote-counting-page-container,
   .glossary-page-container,
-  .quiz-page-container {
+  .quiz-page-container,
+  .about-page-container {
     padding: 1.5rem 1rem 3rem;
   }
 
@@ -2793,4 +2794,188 @@ a {
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-muted);
+}
+
+/* ─── About Page ─────────────────────────────────────────────── */
+.about-page-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.about-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 2rem;
+  font-size: 0.925rem;
+}
+
+.about-page-header {
+  margin-bottom: 2rem;
+}
+
+.about-intro-section {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.about-intro-text {
+  font-size: 1.05rem;
+  color: var(--color-foreground-muted);
+  line-height: 1.7;
+}
+
+.about-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.about-card-text {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.about-topics-section {
+  margin-bottom: 2.5rem;
+}
+
+.about-section-heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.about-section-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.about-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.about-topic-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.about-topic-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.about-topic-body {
+  margin-bottom: 1rem;
+}
+
+.about-topic-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.about-topic-description {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.about-topic-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.about-topic-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.about-topic-link:hover {
+  color: var(--color-primary-hover);
+  transform: translateX(2px);
+}
+
+.about-topic-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.about-disclaimer-section {
+  margin-top: 2rem;
+}
+
+.about-disclaimer-card {
+  padding: 1.35rem 1.5rem;
+  background-color: var(--color-warning-bg);
+  border-left: 4px solid #d97706;
+  border-radius: var(--radius-md);
+  border-top: 1px solid var(--color-warning-border);
+  border-right: 1px solid var(--color-warning-border);
+  border-bottom: 1px solid var(--color-warning-border);
+}
+
+.about-disclaimer-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 0.35rem;
+}
+
+.about-disclaimer-text {
+  font-size: 0.925rem;
+  color: var(--color-warning-text);
+  line-height: 1.6;
 }
