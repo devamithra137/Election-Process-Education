@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import SectionHeading from "./SectionHeading";
 import LoadingIndicator from "./LoadingIndicator";
+import { calculateProgress } from "@/lib/progress";
 
 interface Topic {
   id: string;
@@ -90,9 +91,10 @@ export default function LearningProgress() {
     }
   };
 
-  const completedCount = completedTopics.length;
-  const totalCount = TOPICS.length;
-  const percentage = Math.round((completedCount / totalCount) * 100);
+  const { completedCount, totalCount, percentage } = calculateProgress(
+    completedTopics,
+    TOPICS
+  );
 
   if (!isLoaded) {
     return (
