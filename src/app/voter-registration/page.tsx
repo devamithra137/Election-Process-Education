@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
+import PageHeader from "@/components/PageHeader";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata = {
@@ -25,9 +25,9 @@ export default function VoterRegistrationPage() {
       </nav>
 
       <div className="voter-reg-header">
-        <SectionHeading
+        <PageHeader
           title="Voter Registration"
-          subtitle="Understanding the essential process of enrolling to participate in democratic elections."
+          description="Understanding the essential process of enrolling to participate in democratic elections."
         />
       </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
+import PageHeader from "@/components/PageHeader";
 import ElectionOverview from "@/components/ElectionOverview";
 import VoterRegistration from "@/components/VoterRegistration";
 import ElectionTimeline from "@/components/ElectionTimeline";
@@ -21,9 +21,9 @@ export default function ElectionProcessPage() {
         <Link href="/" className="back-link">
           ← Back to Home
         </Link>
-        <SectionHeading
+        <PageHeader
           title="How the Election Process Works"
-          subtitle="This page provides a comprehensive educational overview of the major stages involved in democratic elections."
+          description="This page provides a comprehensive educational overview of the major stages involved in democratic elections."
         />
       </div>
 
