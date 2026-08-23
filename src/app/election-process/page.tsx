@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
+import Section from "@/components/Section";
 import ElectionOverview from "@/components/ElectionOverview";
 import VoterRegistration from "@/components/VoterRegistration";
 import ElectionTimeline from "@/components/ElectionTimeline";
@@ -27,13 +28,13 @@ export default function ElectionProcessPage() {
         />
       </div>
 
-      <div className="process-sections">
+      <Section id="process-stages" ariaLabel="Election process stages" className="process-sections">
         <ElectionOverview />
         <ElectionTimeline />
         <VoterRegistration />
         <VotingProcess />
         <VoteCounting />
-      </div>
+      </Section>
 
       <div className="jurisdiction-disclaimer">
         <p>

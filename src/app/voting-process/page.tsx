@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
+import Section from "@/components/Section";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata = {
@@ -37,30 +38,34 @@ export default function VotingProcessPage() {
         />
       </div>
 
-      <section className="voting-proc-intro" aria-labelledby="intro-heading">
-        <h2 id="intro-heading" className="sr-only">
-          Introduction
-        </h2>
+      <Section
+        id="intro"
+        title="Introduction"
+        titleHidden
+        className="voting-proc-intro"
+      >
         <p className="intro-text">
           The voting process outlines the general sequence of steps an eligible voter typically goes through when participating in an election, from preparing beforehand to completing and confirming their vote.
         </p>
-      </section>
+      </Section>
 
-      <section className="voting-proc-variation" aria-labelledby="variation-heading">
-        <h2 id="variation-heading" className="voting-proc-section-title">
-          Jurisdiction & Method Differences
-        </h2>
+      <Section
+        id="variation"
+        title="Jurisdiction & Method Differences"
+        className="voting-proc-variation"
+      >
         <div className="variation-card" role="note">
           <p>
             <strong>Educational Note:</strong> Voting methods (such as in-person paper ballots, electronic voting machines, or mail-in voting) and voter verification procedures vary by country, election type, and local jurisdiction.
           </p>
         </div>
-      </section>
+      </Section>
 
-      <section className="voting-proc-sections" aria-labelledby="steps-heading">
-        <h2 id="steps-heading" className="voting-proc-section-title">
-          Stages of the Voting Process
-        </h2>
+      <Section
+        id="steps"
+        title="Stages of the Voting Process"
+        className="voting-proc-sections"
+      >
 
         <div className="voting-proc-grid">
           <article className="voting-proc-card">
@@ -123,7 +128,7 @@ export default function VotingProcessPage() {
             </div>
           </article>
         </div>
-      </section>
+      </Section>
 
       <div className="voting-proc-disclaimer" role="note">
         <p>

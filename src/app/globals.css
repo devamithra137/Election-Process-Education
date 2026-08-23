@@ -834,6 +834,26 @@ a {
   margin-right: auto;
 }
 
+/* ─── Page Section ──────────────────────────────────────────── */
+.page-section {
+  margin-bottom: 2.5rem;
+}
+
+.page-section .section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+  margin-bottom: 1rem;
+}
+
+.page-section .section-description {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
 /* ─── Voter Registration Page ────────────────────────────────── */
 .voter-reg-page-container {
   width: 100%;
