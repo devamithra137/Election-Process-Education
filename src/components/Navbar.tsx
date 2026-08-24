@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -25,6 +27,17 @@ export const Navbar: React.FC = () => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
+
+  const isActiveLink = (href: string): boolean => {
+    if (!pathname) return false;
+    if (href === "/") {
+      return pathname === "/";
+    }
+    if (href.startsWith("#")) {
+      return false;
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <header>
@@ -56,17 +69,36 @@ export const Navbar: React.FC = () => {
             role="list"
           >
             <li>
-              <Link href="/" onClick={closeMenu}>
+              <Link
+                href="/"
+                className={isActiveLink("/") ? "active" : undefined}
+                aria-current={isActiveLink("/") ? "page" : undefined}
+                onClick={closeMenu}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/election-process" onClick={closeMenu}>
+              <Link
+                href="/election-process"
+                className={
+                  isActiveLink("/election-process") ? "active" : undefined
+                }
+                aria-current={
+                  isActiveLink("/election-process") ? "page" : undefined
+                }
+                onClick={closeMenu}
+              >
                 Election Process
               </Link>
             </li>
             <li>
-              <Link href="#about" onClick={closeMenu}>
+              <Link
+                href="#about"
+                className={isActiveLink("#about") ? "active" : undefined}
+                aria-current={isActiveLink("#about") ? "page" : undefined}
+                onClick={closeMenu}
+              >
                 About
               </Link>
             </li>
