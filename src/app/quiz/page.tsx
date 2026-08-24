@@ -9,6 +9,7 @@ import {
   type QuizQuestion,
   QUIZ_QUESTIONS,
 } from "@/data/quiz";
+import { calculateQuizScore } from "@/lib/quiz";
 
 export type { Question, QuizQuestion };
 
@@ -85,9 +86,7 @@ export default function QuizPage() {
   };
 
   const calculateScore = () => {
-    return selectedAnswers.reduce((score: number, answer, idx) => {
-      return answer === QUIZ_QUESTIONS[idx].correctIndex ? score + 1 : score;
-    }, 0);
+    return calculateQuizScore(QUIZ_QUESTIONS, selectedAnswers);
   };
 
   // All questions must be both answered and confirmed to enable submit
