@@ -2,6 +2,7 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import ContentSearch from "@/components/ContentSearch";
 import WhatYouLearn from "@/components/WhatYouLearn";
+import HowToUse from "@/components/HowToUse";
 import LearningPath from "@/components/LearningPath";
 import ElectionOverview from "@/components/ElectionOverview";
 import VoterRegistration from "@/components/VoterRegistration";
@@ -31,6 +32,7 @@ export default function Home() {
       </section>
       <ContentSearch />
       <WhatYouLearn />
+      <HowToUse />
       <LearningPath />
       <ElectionOverview />
       <VoterRegistration />
