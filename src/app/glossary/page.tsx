@@ -10,6 +10,7 @@ import {
   GLOSSARY_CATEGORIES,
   GLOSSARY_ITEMS,
 } from "@/data/glossary";
+import { filterGlossaryItems } from "@/lib/glossary";
 
 export type { GlossaryCategory };
 
@@ -18,19 +19,7 @@ export default function GlossaryPage() {
   const [selectedCategory, setSelectedCategory] = useState<GlossaryCategory>("All");
 
   const filteredItems = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-
-    return GLOSSARY_ITEMS.filter((item) => {
-      const matchesCategory =
-        selectedCategory === "All" || item.category === selectedCategory;
-
-      const matchesQuery =
-        !query ||
-        item.term.toLowerCase().includes(query) ||
-        item.definition.toLowerCase().includes(query);
-
-      return matchesCategory && matchesQuery;
-    });
+    return filterGlossaryItems(GLOSSARY_ITEMS, searchQuery, selectedCategory);
   }, [searchQuery, selectedCategory]);
 
   const handleResetFilters = () => {
