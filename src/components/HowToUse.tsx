@@ -20,7 +20,7 @@ export const HOW_TO_USE_STEPS: HowToUseStep[] = [
     stepNumber: 1,
     title: "Start with the Election Process",
     description:
-      "Begin with a general overview to understand the fundamental stages and principles of democratic elections.",
+      "Begin with a general election-process overview to understand the fundamental stages and principles of democratic elections.",
     links: [
       {
         label: "Election Process →",
@@ -32,7 +32,7 @@ export const HOW_TO_USE_STEPS: HowToUseStep[] = [
     stepNumber: 2,
     title: "Learn the Individual Stages",
     description:
-      "Explore each core phase in detail, from voter eligibility and balloting to tallying and certified results.",
+      "Explore each core stage in detail: Voter Registration, Voting Process, and Vote Counting & Results.",
     links: [
       {
         label: "Voter Registration",
@@ -43,7 +43,7 @@ export const HOW_TO_USE_STEPS: HowToUseStep[] = [
         href: "/voting-process",
       },
       {
-        label: "Vote Counting",
+        label: "Vote Counting & Results",
         href: "/vote-counting",
       },
     ],
@@ -52,7 +52,7 @@ export const HOW_TO_USE_STEPS: HowToUseStep[] = [
     stepNumber: 3,
     title: "Review Election Terminology",
     description:
-      "Consult the glossary whenever you encounter unfamiliar civic or electoral terms to clarify definitions.",
+      "Consult the glossary whenever you encounter unfamiliar civic or electoral terms to understand key definitions.",
     links: [
       {
         label: "Glossary →",
@@ -64,10 +64,10 @@ export const HOW_TO_USE_STEPS: HowToUseStep[] = [
     stepNumber: 4,
     title: "Test Your Knowledge",
     description:
-      "Take the interactive, self-paced quiz after completing the learning sections to check and reinforce your understanding.",
+      "Take the interactive Knowledge Quiz after completing the learning sections to check and reinforce your understanding.",
     links: [
       {
-        label: "Take Quiz →",
+        label: "Knowledge Quiz →",
         href: "/quiz",
       },
     ],
@@ -79,7 +79,7 @@ export const HowToUse: React.FC = () => {
     <Section
       id="how-to-use"
       title="How to Use This Site"
-      subtitle="A simple 4-step guide recommended for beginners to navigate and learn from our educational resources."
+      subtitle="A simple 4-step guide explaining a beginner-friendly learning flow to navigate our educational resources."
       className="how-to-use-section"
     >
       <div className="how-to-use-grid" role="list">
