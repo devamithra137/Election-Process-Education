@@ -8,6 +8,7 @@ import ElectionTimeline from "@/components/ElectionTimeline";
 import VotingProcess from "@/components/VotingProcess";
 import VoteCounting from "@/components/VoteCounting";
 import BackToTop from "@/components/BackToTop";
+import ReadingProgress from "@/components/ReadingProgress";
 
 export const metadata = {
   title: "How the Election Process Works | Election Process Education",
@@ -18,6 +19,7 @@ export const metadata = {
 export default function ElectionProcessPage() {
   return (
     <main className="process-page-container">
+      <ReadingProgress ariaLabel="Election process guide reading progress" />
       <div className="process-page-header">
         <Link href="/" className="back-link">
           ← Back to Home

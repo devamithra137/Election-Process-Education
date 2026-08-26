@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import BackToTop from "@/components/BackToTop";
+import ReadingProgress from "@/components/ReadingProgress";
 
 import {
   type GlossaryCategory,
@@ -29,6 +30,7 @@ export default function GlossaryPage() {
 
   return (
     <main className="glossary-page-container">
+      <ReadingProgress ariaLabel="Glossary reading progress" />
       <nav className="glossary-nav" aria-label="Page navigation">
         <Link href="/" className="back-link">
           ← Back to Home

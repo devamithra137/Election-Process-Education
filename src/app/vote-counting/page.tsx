@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import BackToTop from "@/components/BackToTop";
+import ReadingProgress from "@/components/ReadingProgress";
 
 export const metadata = {
   title: "Vote Counting and Results",
@@ -12,6 +13,7 @@ export const metadata = {
 export default function VoteCountingPage() {
   return (
     <main className="vote-counting-page-container">
+      <ReadingProgress ariaLabel="Vote counting guide reading progress" />
       <nav className="vote-counting-nav" aria-label="Page navigation">
         <Link href="/" className="back-link">
           ← Back to Home

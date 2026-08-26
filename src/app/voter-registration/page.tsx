@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import BackToTop from "@/components/BackToTop";
+import ReadingProgress from "@/components/ReadingProgress";
 
 export const metadata = {
   title: "Voter Registration",
@@ -12,6 +13,7 @@ export const metadata = {
 export default function VoterRegistrationPage() {
   return (
     <main className="voter-reg-page-container">
+      <ReadingProgress ariaLabel="Voter registration guide reading progress" />
       <nav className="voter-reg-nav" aria-label="Page navigation">
         <Link href="/" className="back-link">
           ← Back to Home

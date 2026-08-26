@@ -3,6 +3,7 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import Section from "@/components/Section";
 import BackToTop from "@/components/BackToTop";
+import ReadingProgress from "@/components/ReadingProgress";
 
 export const metadata = {
   title: "Voting Process",
@@ -13,6 +14,7 @@ export const metadata = {
 export default function VotingProcessPage() {
   return (
     <main className="voting-proc-page-container">
+      <ReadingProgress ariaLabel="Voting process guide reading progress" />
       <nav className="voting-proc-nav" aria-label="Page navigation">
         <Link href="/" className="back-link">
           ← Back to Home
