@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/vote-counting", label: "Vote Counting" },
   { href: "/glossary", label: "Glossary" },
   { href: "/quiz", label: "Quiz" },
+  { href: "/resources", label: "Useful Information" },
 ];
 
 export const Footer: React.FC = () => {

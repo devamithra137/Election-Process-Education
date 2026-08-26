@@ -2452,7 +2452,8 @@ a {
   .vote-counting-page-container,
   .glossary-page-container,
   .quiz-page-container,
-  .about-page-container {
+  .about-page-container,
+  .resources-page-container {
     padding: 1.5rem 1rem 3rem;
   }
 
@@ -3203,4 +3204,269 @@ a {
   .back-to-top-button:hover {
     transform: none !important;
   }
+}
+
+/* ─── Useful Information / Resources Page ───────────────────── */
+.resources-page-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.resources-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 2rem;
+  font-size: 0.925rem;
+}
+
+.resources-header {
+  margin-bottom: 2.5rem;
+}
+
+.resources-section {
+  margin-bottom: 3rem;
+}
+
+.resources-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.resources-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resources-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.resources-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 0.65rem;
+}
+
+.resources-badge {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--color-primary-border);
+}
+
+.resources-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  letter-spacing: -0.01em;
+}
+
+.resources-card-text {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+}
+
+.resources-verify-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.resources-verify-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resources-verify-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.resources-verify-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.resources-verify-text {
+  font-size: 0.925rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.resources-checklist-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resources-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resources-checklist-item:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.resources-check-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-success-badge);
+  color: var(--color-success-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.resources-checklist-content {
+  flex: 1;
+}
+
+.resources-checklist-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.resources-checklist-desc {
+  font-size: 0.925rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.resources-disclaimer-section {
+  margin: 2.5rem 0;
+}
+
+.resources-disclaimer {
+  padding: 1.35rem 1.5rem;
+  background-color: var(--color-warning-bg);
+  border-left: 4px solid #d97706;
+  border-radius: var(--radius-md);
+  border-top: 1px solid var(--color-warning-border);
+  border-right: 1px solid var(--color-warning-border);
+  border-bottom: 1px solid var(--color-warning-border);
+}
+
+.resources-disclaimer-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 0.35rem;
+}
+
+.resources-disclaimer-text {
+  font-size: 0.925rem;
+  color: var(--color-warning-text);
+  line-height: 1.6;
+}
+
+.resources-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.resources-topic-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.resources-topic-card:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.resources-topic-body {
+  margin-bottom: 1rem;
+}
+
+.resources-topic-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.resources-topic-desc {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.resources-topic-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.resources-topic-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.resources-topic-link:hover {
+  color: var(--color-primary-hover);
+  transform: translateX(2px);
+}
+
+.resources-topic-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
