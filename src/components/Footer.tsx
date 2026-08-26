@@ -1,15 +1,36 @@
 import React from "react";
 import Link from "next/link";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/election-process", label: "Election Process" },
-  { href: "/voter-registration", label: "Voter Registration" },
-  { href: "/voting-process", label: "Voting Process" },
-  { href: "/vote-counting", label: "Vote Counting" },
-  { href: "/glossary", label: "Glossary" },
-  { href: "/quiz", label: "Quiz" },
-  { href: "/resources", label: "Useful Information" },
+interface FooterNavGroup {
+  title: string;
+  links: { href: string; label: string }[];
+}
+
+const NAV_GROUPS: FooterNavGroup[] = [
+  {
+    title: "Overview",
+    links: [
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About" },
+    ],
+  },
+  {
+    title: "Educational Guides",
+    links: [
+      { href: "/election-process", label: "Election Process" },
+      { href: "/voter-registration", label: "Voter Registration" },
+      { href: "/voting-process", label: "Voting Process" },
+      { href: "/vote-counting", label: "Vote Counting & Results" },
+    ],
+  },
+  {
+    title: "Resources & Tools",
+    links: [
+      { href: "/glossary", label: "Glossary" },
+      { href: "/quiz", label: "Knowledge Quiz" },
+      { href: "/resources", label: "Useful Election Information" },
+    ],
+  },
 ];
 
 export const Footer: React.FC = () => {
@@ -20,21 +41,27 @@ export const Footer: React.FC = () => {
           <div className="footer-brand-section">
             <h2 className="footer-brand-title">Election Process Education</h2>
             <p className="footer-statement">
-              An educational resource for understanding the general election process.
+              Election Process Education is a neutral, non-partisan educational project dedicated to explaining democratic election systems and procedures clearly and accessibly.
             </p>
           </div>
 
-          <nav className="footer-nav-section" aria-label="Footer Navigation">
-            <h3 className="footer-heading">Navigation</h3>
-            <ul className="footer-links" role="list">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="footer-link">
-                    {link.label}
-                  </Link>
-                </li>
+          <nav className="footer-nav" aria-label="Footer Navigation">
+            <div className="footer-nav-columns">
+              {NAV_GROUPS.map((group) => (
+                <div key={group.title} className="footer-nav-group">
+                  <h3 className="footer-heading">{group.title}</h3>
+                  <ul className="footer-links" role="list">
+                    {group.links.map((link) => (
+                      <li key={link.href}>
+                        <Link href={link.href} className="footer-link">
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </nav>
         </div>
 

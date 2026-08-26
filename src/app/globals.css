@@ -2272,7 +2272,10 @@ a {
 }
 
 .footer-brand-section {
-  max-width: 420px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .footer-brand-title {
@@ -2280,7 +2283,6 @@ a {
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--color-primary);
-  margin-bottom: 0.5rem;
 }
 
 .footer-statement {
@@ -2289,23 +2291,38 @@ a {
   line-height: 1.6;
 }
 
-.footer-nav-section {
+.footer-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-nav-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 3rem;
+}
+
+.footer-nav-group {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  min-width: 140px;
 }
 
 .footer-heading {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--color-foreground);
 }
 
 .footer-links {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
+  flex-direction: column;
+  gap: 0.6rem;
   padding: 0;
   margin: 0;
 }
@@ -2314,10 +2331,12 @@ a {
   font-size: 0.925rem;
   color: var(--color-foreground-muted);
   transition: color 0.2s ease;
+  display: inline-block;
 }
 
 .footer-link:hover {
   color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -2563,11 +2582,15 @@ a {
 
   .footer-top {
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 2rem;
   }
 
-  .footer-links {
-    gap: 0.5rem 1rem;
+  .footer-nav {
+    justify-content: flex-start;
+  }
+
+  .footer-nav-columns {
+    gap: 2rem 2.5rem;
   }
 
   .footer-brand-section {
