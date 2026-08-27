@@ -2330,13 +2330,24 @@ a {
 .footer-link {
   font-size: 0.925rem;
   color: var(--color-foreground-muted);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease, text-decoration-color 0.2s ease;
   display: inline-block;
+  border-radius: var(--radius-sm);
 }
 
 .footer-link:hover {
   color: var(--color-primary);
   text-decoration: underline;
+  text-underline-offset: 3px;
+  transform: translateX(2px);
+}
+
+.footer-link.active,
+.footer-link[aria-current="page"] {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .footer-bottom {

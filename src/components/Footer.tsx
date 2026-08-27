@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface FooterNavGroup {
   title: string;
@@ -34,6 +37,19 @@ const NAV_GROUPS: FooterNavGroup[] = [
 ];
 
 export const Footer: React.FC = () => {
+  const pathname = usePathname();
+
+  const isActiveLink = (href: string): boolean => {
+    if (!pathname) return false;
+    if (href === "/") {
+      return pathname === "/";
+    }
+    if (href.startsWith("#")) {
+      return false;
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <footer className="footer" aria-label="Site Footer">
       <div className="footer-container">
@@ -51,13 +67,20 @@ export const Footer: React.FC = () => {
                 <div key={group.title} className="footer-nav-group">
                   <h3 className="footer-heading">{group.title}</h3>
                   <ul className="footer-links" role="list">
-                    {group.links.map((link) => (
-                      <li key={link.href}>
-                        <Link href={link.href} className="footer-link">
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
+                    {group.links.map((link) => {
+                      const active = isActiveLink(link.href);
+                      return (
+                        <li key={link.href}>
+                          <Link
+                            href={link.href}
+                            className={`footer-link ${active ? "active" : ""}`}
+                            aria-current={active ? "page" : undefined}
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}
