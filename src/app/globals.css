@@ -1347,8 +1347,9 @@ a {
 
 .glossary-search-input {
   width: 100%;
+  min-height: 2.75rem;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
-  font-size: 0.975rem;
+  font-size: 1rem;
   font-family: inherit;
   color: var(--color-foreground);
   background-color: var(--color-background);
@@ -1358,7 +1359,12 @@ a {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.glossary-search-input:focus {
+.glossary-search-input:hover {
+  border-color: var(--color-border-hover);
+}
+
+.glossary-search-input:focus,
+.glossary-search-input:focus-visible {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-border);
